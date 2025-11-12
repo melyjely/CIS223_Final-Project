@@ -1,0 +1,3 @@
+// Final Project: Checkpoint #1 - Proposal and Prototype
+// 
+// For my final project I want to create a reading log by using react components. This will build of a to do list example. There will be a form on the page that allows the user to input the title of the book, the author, the date finished, and a rating. After submitting the form, the log will appear in a list below the form. I would like to be able to filter the list by rating, alphabetizing the title or author, and the date finished.
