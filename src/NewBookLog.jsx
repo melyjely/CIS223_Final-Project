@@ -25,15 +25,15 @@ export function NewBookLog({ onSubmit }) {
         <input
           value={newBook}
           onChange={(e) => setNewBook(e.target.value)}
-          type="author"
-          id="author"
+          type="book"
+          id="book"
         />
         <label htmlFor="rating">Rating</label>
         <input
           value={newBook}
           onChange={(e) => setNewBook(e.target.value)}
           type="range"
-          id="rating"
+          id="book"
           min="0"
           max="5"
         />
@@ -42,7 +42,7 @@ export function NewBookLog({ onSubmit }) {
           value={newBook}
           onChange={(e) => setNewBook(e.target.value)}
           type="date"
-          id="date"
+          id="book"
         />
       </div>
       <button className="btn">Add</button>

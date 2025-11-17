@@ -1,4 +1,5 @@
 export function BookEntry({ completed, id, title, toggleTodo, deleteBook }) {
+  // add ", author, rating, date" ?
   return (
     <li>
       {/* Tutorial START */}
@@ -11,9 +12,10 @@ export function BookEntry({ completed, id, title, toggleTodo, deleteBook }) {
         {title}
       </label>
       {/* Tutorial END */}
-      <label>{author}</label>
+
+      {/* <label>{author}</label>
       <label>{rating}</label>
-      <label>{date}</label>
+      <label>{date}</label> */}
 
       <button onClick={() => deleteBook(id)} className="btn">
         Delete

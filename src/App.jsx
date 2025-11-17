@@ -22,11 +22,19 @@ export default function App() {
 
   // END
 
-  function addBook(title, author, rating, date) {
+  function addBook(title) {
+    // add ", author, rating, date" ?
     setBooks((currentBooks) => {
       return [
         ...currentBooks,
-        { id: crypto.randomUUID(), title, author, rating, date, completed: false },
+        {
+          id: crypto.randomUUID(),
+          title,
+          author,
+          rating,
+          date,
+          completed: false,
+        },
       ];
     });
   }
