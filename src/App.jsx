@@ -30,9 +30,9 @@ export default function App() {
         {
           id: crypto.randomUUID(),
           title,
-          author,
-          rating,
-          date,
+          // author,
+          // rating,
+          // date,
           completed: false,
         },
       ];
