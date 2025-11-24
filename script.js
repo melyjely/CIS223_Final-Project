@@ -16,3 +16,6 @@
 // the book and the date it was finished will appear as well. It would also be nice to be able to customize
 // the reading log by allowing the user to input a name, change the color palette of the page, and add 
 // a background. Or alternatively, there could be a few different pre-built themes the user could toggle through.
+
+// This project is based on the code for a React To Do List tutorial video.
+// https://www.youtube.com/watch?v=Rh3tobg7hEo
