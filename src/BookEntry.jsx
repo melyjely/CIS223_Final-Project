@@ -1,21 +1,30 @@
-export function BookEntry({ completed, id, title, toggleTodo, deleteBook }) {
-  // add ", author, rating, date" ?
+export function BookEntry({
+  completed,
+  id,
+  title,
+  author,
+  rating,
+  date,
+  // toggleTodo,
+  deleteBook,
+}) {
   return (
     <li>
       {/* Tutorial START */}
       <label>
-        <input
+        {/* <input
           type="checkbox"
           checked={completed}
           onChange={(e) => toggleTodo(id, e.target.checked)}
-        />
+        /> */}
         {title}
       </label>
       {/* Tutorial END */}
 
-      {/* <label>{author}</label>
-      <label>{rating}</label>
-      <label>{date}</label> */}
+      <label> by {author}</label>
+      <label> Rating: {rating}</label>
+      <label> Finished on {date} </label>
+      {/* date format changes when logged */}
 
       <button onClick={() => deleteBook(id)} className="btn">
         Delete

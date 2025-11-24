@@ -1,6 +1,7 @@
 import { BookEntry } from "./bookEntry";
 
-export function BookList({ books: books, toggleTodo, deleteBook }) {
+export function BookList({ books: books, deleteBook }) {
+  // toggleTodo removed ^
   return (
     <ul className="list">
       {books.length === 0 && "Nothing logged yet!"}
@@ -9,7 +10,7 @@ export function BookList({ books: books, toggleTodo, deleteBook }) {
           <BookEntry
             {...book}
             key={book.id}
-            toggleTodo={toggleTodo}
+            // toggleTodo={toggleTodo}
             deleteBook={deleteBook}
           />
         );

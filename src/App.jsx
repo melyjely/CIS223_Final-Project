@@ -22,7 +22,7 @@ export default function App() {
 
   // END
 
-  function addBook(title) {
+  function addBook(title, author, rating, date) {
     // add ", author, rating, date" ?
     setBooks((currentBooks) => {
       return [
@@ -30,9 +30,9 @@ export default function App() {
         {
           id: crypto.randomUUID(),
           title,
-          // author,
-          // rating,
-          // date,
+          author,
+          rating,
+          date,
           completed: false,
         },
       ];
@@ -40,16 +40,16 @@ export default function App() {
   }
 
   // Tutorial START
-  function toggleTodo(id, completed) {
-    setBooks((currentBooks) => {
-      return currentBooks.map((book) => {
-        if (book.id === id) {
-          return { ...book, completed };
-        }
-        return book;
-      });
-    });
-  }
+  // function toggleTodo(id, completed) {
+  //   setBooks((currentBooks) => {
+  //     return currentBooks.map((book) => {
+  //       if (book.id === id) {
+  //         return { ...book, completed };
+  //       }
+  //       return book;
+  //     });
+  //   });
+  // }
   // END
 
   function deleteBook(id) {
@@ -61,8 +61,9 @@ export default function App() {
   return (
     <>
       <NewBookLog onSubmit={addBook} />
-      <h1 className="header">Reading Log</h1>
-      <BookList books={books} toggleTodo={toggleTodo} deleteBook={deleteBook} />
+      <h1 className="header">To Be Read</h1>
+      <BookList books={books} deleteBook={deleteBook} />
+      {/* removed "toggleTodo={toggleTodo}"^ */}
     </>
   );
 }
