@@ -61,7 +61,7 @@ export default function App() {
   return (
     <>
       <NewBookLog onSubmit={addBook} />
-      <h1 className="header">To Be Read</h1>
+      <h1 className="header">Book Log</h1>
       <BookList books={books} deleteBook={deleteBook} />
       {/* removed "toggleTodo={toggleTodo}"^ */}
     </>
