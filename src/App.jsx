@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { BookList } from "./BookList";
+// import { BookList } from "./BookList";
 import { NewBookLog } from "./NewBookLog";
+import { ToBeRead } from "./ToBeRead";
 
 // Tutorial START
 export default function App() {
@@ -16,23 +17,42 @@ export default function App() {
   // hooks need to be called at the top of the function
   // always runs the same # of hooks
   // cannot be in conditional statements, for loops, ifs
+
+  // Save the current list to local storage
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(books));
   }, [books]);
 
   // END
 
-  function addBook(title, author, rating, date) {
+  function addBook(title, author) {
     // add ", author, rating, date" ?
-    setBooks((currentBooks) => {
+    setBooks((currentTBR) => {
+      // return the current list + the new entry
       return [
-        ...currentBooks,
+        ...currentTBR,
         {
           id: crypto.randomUUID(),
           title,
           author,
-          rating,
-          date,
+          completed: false,
+        },
+      ];
+    });
+  }
+
+  function finishBook(title, author) {
+    // add "rating, date" ?
+    setBooks((finishedBooks) => {
+      // return the current list + the finished book
+      return [
+        ...finishedBooks,
+        {
+          id: crypto.randomUUID(),
+          title,
+          author,
+          // rating,
+          // date,
           completed: false,
         },
       ];
@@ -40,30 +60,54 @@ export default function App() {
   }
 
   // Tutorial START
-  // function toggleTodo(id, completed) {
-  //   setBooks((currentBooks) => {
-  //     return currentBooks.map((book) => {
-  //       if (book.id === id) {
-  //         return { ...book, completed };
-  //       }
-  //       return book;
-  //     });
-  //   });
-  // }
+  function toggleRead(id, completed) {
+    setBooks((currentTBR) => {
+      return currentTBR.map((book) => {
+        if (book.id === id) {
+          return { ...book, completed };
+        }
+        return book;
+      });
+    });
+  }
   // END
 
+  // remove book entry
   function deleteBook(id) {
-    setBooks((currentBooks) => {
-      return currentBooks.filter((book) => book.id !== id);
+    setBooks((currentTBR) => {
+      return currentTBR.filter((book) => book.id !== id);
     });
   }
 
   return (
     <>
-      <NewBookLog onSubmit={addBook} />
-      <h1 className="header">Book Log</h1>
-      <BookList books={books} deleteBook={deleteBook} />
-      {/* removed "toggleTodo={toggleTodo}"^ */}
+      {/* form to log book */}
+      <div id="form">
+        <NewBookLog onSubmit={addBook} />
+      </div>
+
+      <div id="paperList">
+        {/* <section> */}
+          <h1 className="header">To Be Read</h1>
+          {/* entries are then added to the book log list */}
+          <ToBeRead
+            onSubmit={finishBook}
+            books={books}
+            toggleRead={toggleRead}
+            deleteBook={deleteBook}
+          />
+        {/* </section> */}
+
+        {/* <section> */}
+          {/* <h1 className="header">Finished Books</h1> */}
+          {/* <BookList
+          finishedBooks={finishedBooks}
+          toggleRead={toggleRead}
+          deleteBook={deleteBook}
+          /> */}
+        {/* </section> */}
+      </div>
+      {/* removed "toggleRead={toggleRead}"^ */}
     </>
   );
 }

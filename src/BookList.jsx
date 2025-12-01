@@ -1,20 +1,24 @@
-import { BookEntry } from "./bookEntry";
+// export function BookList({
+//   finishedBooks: finishedBooks,
+//   toggleRead,
+//   deleteBook,
+// }) {
+//   // toggleRead removed ^
+//   return (
+//     <ul className="list">
+//       {finishedBooks.length === 0 && "Nothing finished yet!"}
 
-export function BookList({ books: books, deleteBook }) {
-  // toggleTodo removed ^
-  return (
-    <ul className="list">
-      {books.length === 0 && "Nothing logged yet!"}
-      {books.map((book) => {
-        return (
-          <BookEntry
-            {...book}
-            key={book.id}
-            // toggleTodo={toggleTodo}
-            deleteBook={deleteBook}
-          />
-        );
-      })}
-    </ul>
-  );
-}
+//       {/* add logged finishedBooks to list */}
+//       {finishedBooks.map((book) => {
+//         return (
+//           <ToBeRead
+//             {...book}
+//             key={book.id}
+//             toggleRead={toggleRead}
+//             deleteBook={deleteBook}
+//           />
+//         );
+//       })}
+//     </ul>
+//   );
+// }
