@@ -5,14 +5,15 @@ export function NewBookLog({ onSubmit }) {
 
   const [author, setAuthor] = useState("");
 
-  // const [rating, setRating] = useState(2.5);
+  const [rating, setRating] = useState(2.5);
 
+  const [date, setDate] = useState();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (newBook === "") return; // if empty string, then return / do nothing
     // onSubmit(newBook, author);
-    onSubmit(newBook, author); // create log for the book in the list
+    onSubmit(newBook, author, rating, date); // create log for the book in the list
 
     setNewBook(""); // erase fields for next entry
   }
@@ -35,7 +36,7 @@ export function NewBookLog({ onSubmit }) {
           type="author"
           id="author"
         />
-        {/* <label htmlFor="rating">Rating</label>
+        <label htmlFor="rating">Rating</label>
         <input
           value={rating}
           onChange={(e) => setRating(parseFloat(e.target.value))}
@@ -50,7 +51,7 @@ export function NewBookLog({ onSubmit }) {
           onChange={(e) => setDate(e.target.value)}
           type="date"
           id="date"
-        /> */}
+        />
       </div>
       <button className="btn">Add</button>
     </form>

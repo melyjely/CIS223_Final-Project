@@ -1,45 +1,22 @@
-// import { useState } from "react";
-
-export function BookEntry({
-  completed,
-  id,
-  title,
-  author,
-  // rating,
-  // date,
-  toggleRead,
-  deleteBook,
-}) {
-  // const [date, setDate] = useState();
+export function BookEntry({ id, title, author, rating, date, deleteBook }) {
   return (
     <li>
       {/* Tutorial START */}
-      <label className="check">
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={(e) => toggleRead(id, e.target.checked)}
-        />
-        {title}
-      </label>
+      &#x2714;
+      <label>{title}</label>
       {/* Tutorial END */}
-
       <label> by {author}</label>
-      {/* <label> Rating: {rating}</label>
-      <label> Finished on {date} </label> */}
+      <label>
+        {" "}
+        finished on <strong>{date}</strong>{" "}
+      </label>
+      <label>
+        {" "}
+        Rating: <strong>{rating}</strong>/5
+      </label>
       {/* date format changes when logged */}
-      {/* <label>
-        Date Finished:
-        <input
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          type="date"
-          id="date"
-        />
-        {date}
-      </label> */}
-      <button onClick={() => deleteBook(id)} className="btn btn-finish">
-        I'm Finished
+      <button onClick={() => deleteBook(id)} className="btn btn-delete">
+        &#x2715;
       </button>
     </li>
   );

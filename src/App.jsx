@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-// import { BookList } from "./BookList";
+import { BookList } from "./BookList";
 import { NewBookLog } from "./NewBookLog";
-import { ToBeRead } from "./ToBeRead";
 
 // Tutorial START
 export default function App() {
@@ -25,89 +24,43 @@ export default function App() {
 
   // END
 
-  function addBook(title, author) {
+  function addBook(title, author, rating, date) {
     // add ", author, rating, date" ?
-    setBooks((currentTBR) => {
+    setBooks((currentBooks) => {
       // return the current list + the new entry
       return [
-        ...currentTBR,
+        ...currentBooks,
         {
           id: crypto.randomUUID(),
           title,
           author,
-          completed: false,
+          rating,
+          date,
+          // completed: false,
         },
       ];
     });
   }
 
-  function finishBook(title, author) {
-    // add "rating, date" ?
-    setBooks((finishedBooks) => {
-      // return the current list + the finished book
-      return [
-        ...finishedBooks,
-        {
-          id: crypto.randomUUID(),
-          title,
-          author,
-          // rating,
-          // date,
-          completed: false,
-        },
-      ];
-    });
-  }
-
-  // Tutorial START
-  function toggleRead(id, completed) {
-    setBooks((currentTBR) => {
-      return currentTBR.map((book) => {
-        if (book.id === id) {
-          return { ...book, completed };
-        }
-        return book;
-      });
-    });
-  }
-  // END
 
   // remove book entry
   function deleteBook(id) {
-    setBooks((currentTBR) => {
-      return currentTBR.filter((book) => book.id !== id);
+    setBooks((currentBooks) => {
+      return currentBooks.filter((book) => book.id !== id);
     });
   }
 
   return (
     <>
       {/* form to log book */}
-      <div id="form">
-        <NewBookLog onSubmit={addBook} />
-      </div>
+      <NewBookLog onSubmit={addBook} />
 
       <div id="paperList">
-        {/* <section> */}
-          <h1 className="header">To Be Read</h1>
-          {/* entries are then added to the book log list */}
-          <ToBeRead
-            onSubmit={finishBook}
-            books={books}
-            toggleRead={toggleRead}
-            deleteBook={deleteBook}
-          />
-        {/* </section> */}
-
-        {/* <section> */}
-          {/* <h1 className="header">Finished Books</h1> */}
-          {/* <BookList
-          finishedBooks={finishedBooks}
-          toggleRead={toggleRead}
-          deleteBook={deleteBook}
-          /> */}
-        {/* </section> */}
+        <h1 className="header">Book Log</h1>
+        {/* entries are then added to the book log list */}
+        <BookList books={books} deleteBook={deleteBook} />
       </div>
-      {/* removed "toggleRead={toggleRead}"^ */}
+      {/* removed "toggleTodo={toggleTodo}"^ */}
     </>
   );
 }
