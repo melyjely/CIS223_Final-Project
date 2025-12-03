@@ -1,4 +1,4 @@
-import { BookEntry } from "./bookEntry";
+import { BookEntry } from "./BookEntry";
 
 export function BookList({ books: books, deleteBook }) {
   // toggleTodo removed ^
