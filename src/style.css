@@ -113,12 +113,6 @@ input[type="range"] {
   align-items: center;
 }
 
-/* written by me */
-.list li:has(input:focus-visible) label {
-  outline: 1px solid hsl(118, 100%, 50%);
-}
-/* ^^^^^^^^^^ */
-
 .list li input {
   outline: none;
   width: 0;
@@ -127,3 +121,23 @@ input[type="range"] {
   pointer-events: none;
   position: absolute;
 }
+
+
+/* written by me */
+.list li:has(input:focus-visible) label {
+  outline: 1px solid hsl(118, 100%, 50%);
+}
+
+p {
+  font-size: 10px;
+  color: #d4d39d;
+  text-align: center;
+  margin: 100px auto auto auto;
+}
+
+a {
+  color: #c5c379;
+}
+/* ^^^^^^^^^^ */
+
+
