@@ -36,7 +36,6 @@ export default function App() {
           author,
           rating,
           date,
-          // completed: false,
         },
       ];
     });
