@@ -33,7 +33,7 @@ export function NewBookLog({ onSubmit }) {
       <div className="form-row">
         {/* React components can only return one element, if you was to return multiple, you can wrap everything in a div or a fragment. Ex. "<></>" */}
         <h1>Log your Books</h1>
-        {/* normally would use "for" but since we are using JSX we use "htmlFor" */}
+        {/* normally would use "for" but since for is a keyword in react we use "htmlFor" */}
         <label htmlFor="book">Title</label>
         <input
           value={newBook}
@@ -42,6 +42,7 @@ export function NewBookLog({ onSubmit }) {
           onChange={(e) => setNewBook(e.target.value)}
           type="book"
           id="book"
+          required
         />
       </div>
       <div className="form-row">
@@ -51,6 +52,7 @@ export function NewBookLog({ onSubmit }) {
           onChange={(e) => setAuthor(e.target.value)}
           type="author"
           id="author"
+          required
         />
       </div>
       <div className="form-row">
@@ -63,6 +65,7 @@ export function NewBookLog({ onSubmit }) {
           min="0"
           max="5"
           step="0.25"
+          required
         />
       </div>
       <div className="form-row">
@@ -72,6 +75,7 @@ export function NewBookLog({ onSubmit }) {
           onChange={(e) => setDate(e.target.value)}
           type="date"
           id="date"
+          required
         />
       </div>
       <button className="btn">Add</button>
