@@ -22,10 +22,9 @@ export default function App() {
     localStorage.setItem("ITEMS", JSON.stringify(books));
   }, [books]);
 
-  // END
+  // END TUTORIAL CODE
 
   function addBook(title, author, rating, date) {
-    // add ", author, rating, date" ?
     setBooks((currentBooks) => {
       // return the current list + the new entry
       return [
@@ -40,7 +39,6 @@ export default function App() {
       ];
     });
   }
-
 
   // remove book entry
   function deleteBook(id) {
@@ -59,7 +57,6 @@ export default function App() {
         {/* entries are then added to the book log list */}
         <BookList books={books} deleteBook={deleteBook} />
       </div>
-      {/* removed "toggleTodo={toggleTodo}"^ */}
     </>
   );
 }
